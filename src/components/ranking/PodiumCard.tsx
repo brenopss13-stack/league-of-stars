@@ -57,26 +57,25 @@ export function PodiumCard({ player, position }: Props) {
         }}
       />
 
-      {isFirst && (
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="pointer-events-none absolute left-1/2 z-10 -translate-x-1/2"
-          style={{ top: "-22px" }}
-        >
-          <Crown
-            className="h-7 w-7 sm:h-10 sm:w-10"
-            style={{
-              color: "#F4C542",
-              filter: "drop-shadow(0 0 10px rgba(244,197,66,0.55))",
-            }}
-            strokeWidth={2.2}
-            fill="#F4C542"
-            fillOpacity={0.25}
-          />
-        </motion.div>
-      )}
+      <motion.div
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="pointer-events-none absolute left-1/2 z-10 -translate-x-1/2"
+        style={{ top: "-22px" }}
+      >
+        <Crown
+          className={isFirst ? "h-7 w-7 sm:h-10 sm:w-10" : "h-6 w-6 sm:h-8 sm:w-8"}
+          style={{
+            color: accent,
+            filter: `drop-shadow(0 0 10px rgba(${rgb},0.55))`,
+          }}
+          strokeWidth={2.2}
+          fill={accent}
+          fillOpacity={0.25}
+        />
+      </motion.div>
+
 
 
       <div
