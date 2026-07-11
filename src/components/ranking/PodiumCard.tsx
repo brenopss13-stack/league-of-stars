@@ -3,7 +3,7 @@ import type { Player } from "@/lib/ranking-data";
 import { Avatar } from "./Avatar";
 import { Badge } from "./Badge";
 import { AnimatedRevenue } from "./AnimatedRevenue";
-import { VerifiedBadge } from "./VerifiedBadge";
+
 
 
 type Props = {
@@ -63,19 +63,18 @@ export function PodiumCard({ player, position }: Props) {
           }}
         />
 
-        <VerifiedBadge
-          size={isFirst ? 22 : 18}
-          className="absolute right-3 top-3 drop-shadow-[0_0_10px_rgba(168,85,247,0.5)] sm:right-4 sm:top-4"
-        />
-
         <div className="flex flex-col items-center text-center">
           <div className="relative">
             <Avatar
               initials={player.avatar}
+              image={player.image}
+              name={player.name}
               size={isFirst ? 88 : 68}
               mobileSize={isFirst ? 60 : 48}
               ring={ringByPos[position]}
+              verified
             />
+
             <div
               className="absolute -bottom-1 left-1/2 grid h-6 w-6 -translate-x-1/2 place-items-center rounded-full border border-white/10 bg-[#050505] text-[10px] font-bold sm:h-7 sm:w-7 sm:text-xs"
               style={{ color: accent }}
