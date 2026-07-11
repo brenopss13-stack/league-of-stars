@@ -8,29 +8,28 @@ function PositionDelta({ change }: { change: number }) {
   if (change === 0) {
     return (
       <span
-        className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs font-medium text-white/50"
+        className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/40"
         title="Manteve a posição"
       >
         <Minus className="h-3.5 w-3.5" />
-        <span className="tabular-nums">—</span>
       </span>
     );
   }
   const up = change > 0;
   return (
     <span
-      className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold tabular-nums ${
+      className={`inline-flex h-7 w-7 items-center justify-center rounded-full border ${
         up
-          ? "border-[#22C55E]/25 bg-[#22C55E]/10 text-[#22C55E]"
-          : "border-red-500/25 bg-red-500/10 text-red-400"
+          ? "border-[#22C55E]/30 bg-[#22C55E]/10 text-[#22C55E]"
+          : "border-red-500/30 bg-red-500/10 text-red-400"
       }`}
-      title={up ? `Subiu ${change} posições` : `Desceu ${Math.abs(change)} posições`}
+      title={up ? "Subiu de posição" : "Desceu de posição"}
     >
-      {up ? <ArrowUp className="h-3.5 w-3.5" /> : <ArrowDown className="h-3.5 w-3.5" />}
-      {Math.abs(change)}
+      {up ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />}
     </span>
   );
 }
+
 
 export function RankingRow({
   player,
