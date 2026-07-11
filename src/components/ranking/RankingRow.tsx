@@ -53,7 +53,6 @@ export function RankingRow({
             image={player.image}
             name={player.name}
             size={44}
-            verified
           />
           <span className="truncate text-base font-medium text-white">
             {player.name}
