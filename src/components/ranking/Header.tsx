@@ -8,7 +8,7 @@ export function Header() {
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.05 }}
-        className="mt-6 flex flex-wrap items-center justify-center gap-3 text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-[56px] md:leading-[1.05]"
+        className="flex flex-wrap items-center justify-center gap-3 text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-[56px] md:leading-[1.05]"
       >
         <Trophy
           className="h-9 w-9 md:h-12 md:w-12"
