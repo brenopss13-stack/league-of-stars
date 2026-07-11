@@ -61,12 +61,15 @@ export function RankingRow({
           #{position}
         </span>
         <div className="flex min-w-0 items-center gap-3">
-          <Avatar initials={player.avatar} size={44} />
-          <span className="inline-flex min-w-0 items-center gap-1.5">
-            <span className="truncate text-base font-medium text-white">
-              {player.name}
-            </span>
-            <VerifiedBadge size={16} className="shrink-0" />
+          <Avatar
+            initials={player.avatar}
+            image={player.image}
+            name={player.name}
+            size={44}
+            verified
+          />
+          <span className="truncate text-base font-medium text-white">
+            {player.name}
           </span>
         </div>
       </div>
