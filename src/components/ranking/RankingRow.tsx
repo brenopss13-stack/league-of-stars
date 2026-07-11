@@ -74,7 +74,7 @@ export function RankingRow({
         </span>
       </div>
 
-      <div className="hidden justify-end sm:flex">
+      <div className="flex justify-end">
         <PositionDelta change={player.positionChange} />
       </div>
     </motion.div>
