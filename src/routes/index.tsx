@@ -29,20 +29,10 @@ function Index() {
         <section>
           <Podium top3={top3} />
         </section>
-        <section className="flex flex-col gap-6">
-          <div className="flex items-end justify-between gap-4">
-            <div>
-              <h2 className="text-lg font-semibold text-white sm:text-xl">
-                Ranking completo
-              </h2>
-              <p className="mt-1 text-sm text-[#9CA3AF]">
-                Posições 4 a 10 · atualizado em tempo real
-              </p>
-            </div>
-            <div className="hidden h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent sm:block" />
-          </div>
+        <section>
           <RankingList players={rest} />
         </section>
+
 
         <footer className="pt-8 text-center text-xs text-white/30">
           © Marketplace · Temporada 2026
