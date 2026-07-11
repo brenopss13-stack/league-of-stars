@@ -11,6 +11,7 @@ type Props = {
   position: 1 | 2 | 3;
 };
 
+const ringByPos = { 1: "gold", 2: "silver", 3: "bronze" } as const;
 const accentByPos = {
   1: "#F4C542",
   2: "#C0C0C0",
@@ -76,6 +77,7 @@ export function PodiumCard({ player, position }: Props) {
               name={player.name}
               size={isFirst ? 88 : 68}
               mobileSize={isFirst ? 60 : 48}
+              ring={ringByPos[position]}
             />
           </div>
 

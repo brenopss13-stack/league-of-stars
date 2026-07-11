@@ -13,22 +13,16 @@ type Props = {
 
 const ringColors = {
   gold: {
-    from: "#FFE9A8",
-    mid: "#F4C542",
-    to: "#B8860B",
-    glow: "rgba(244,197,66,0.55)",
+    solid: "#F4C542",
+    glow: "rgba(244,197,66,0.28)",
   },
   silver: {
-    from: "#FFFFFF",
-    mid: "#E5E5E5",
-    to: "#8A8A8A",
-    glow: "rgba(220,220,230,0.45)",
+    solid: "#D9D9DE",
+    glow: "rgba(220,220,230,0.22)",
   },
   bronze: {
-    from: "#F1B27A",
-    mid: "#CD7F32",
-    to: "#7A4A1E",
-    glow: "rgba(205,127,50,0.5)",
+    solid: "#CD7F32",
+    glow: "rgba(205,127,50,0.24)",
   },
 };
 
@@ -81,29 +75,37 @@ export function Avatar({
   }
 
   const c = ringColors[ring];
-  const ringWidth = Math.max(3, Math.round(s * 0.055));
+  const ringWidth = Math.max(2, Math.round(s * 0.03));
+  const gap = Math.max(2, Math.round(s * 0.045));
 
   return (
     <div className="relative shrink-0" style={{ width: s, height: s }}>
-      {/* soft outer glow */}
+      {/* very soft outer glow */}
       <div
         aria-hidden
         className="absolute inset-0 rounded-full blur-xl"
         style={{
           background: `radial-gradient(closest-side, ${c.glow}, transparent 70%)`,
-          transform: "scale(1.6)",
+          transform: "scale(1.35)",
         }}
       />
-      {/* metallic gradient ring */}
+      {/* thin solid ring with inset gap around the image */}
       <div
-        className="relative grid h-full w-full place-items-center rounded-full"
+        className="relative h-full w-full rounded-full"
         style={{
-          background: `conic-gradient(from 220deg, ${c.from}, ${c.mid} 40%, ${c.to} 70%, ${c.from})`,
           padding: ringWidth,
-          boxShadow: `0 0 0 1px ${c.mid}55, 0 0 28px ${c.glow}`,
+          background: c.solid,
+          boxShadow: `0 0 12px ${c.glow}`,
         }}
       >
-        <div className="h-full w-full overflow-hidden rounded-full">{inner}</div>
+        <div
+          className="h-full w-full overflow-hidden rounded-full bg-[#0F0F10]"
+          style={{ padding: gap }}
+        >
+          <div className="h-full w-full overflow-hidden rounded-full">
+            {inner}
+          </div>
+        </div>
       </div>
       {badge}
     </div>
