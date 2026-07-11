@@ -24,7 +24,7 @@ export function Header() {
         transition={{ duration: 0.7, delay: 0.15 }}
         className="mt-3 max-w-xl text-sm text-[#9CA3AF] sm:mt-4 sm:text-lg md:text-xl"
       >
-        Ranking dos maiores faturamentos do marketplace
+        Os maiores nomes do nosso marketplace.
       </motion.p>
     </div>
   );
