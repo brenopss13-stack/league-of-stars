@@ -24,12 +24,12 @@ function Index() {
       style={{ backgroundColor: "#050505", fontFamily: "'Inter', sans-serif" }}
     >
       <Particles />
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16 sm:gap-16 sm:px-6 md:gap-20 md:py-28">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-10 px-4 py-16 sm:gap-16 sm:px-8 md:gap-20 md:px-12 md:py-28">
         <Header />
-        <section className="mx-auto w-full max-w-4xl">
+        <section>
           <Podium top3={top3} />
         </section>
-        <section className="mx-auto w-full max-w-3xl">
+        <section>
           <RankingList players={rest} />
         </section>
 
