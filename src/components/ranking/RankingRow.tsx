@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowUp, ArrowDown, Minus } from "lucide-react";
 import type { Player } from "@/lib/ranking-data";
 import { Avatar } from "./Avatar";
-import { VerifiedBadge } from "./VerifiedBadge";
 import { formatRevenue } from "@/lib/format-revenue";
 
 function PositionDelta({ change }: { change: number }) {
