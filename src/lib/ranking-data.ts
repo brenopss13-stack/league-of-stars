@@ -18,7 +18,7 @@ export const players: Player[] = [
   { name: "Ana Beatriz", avatar: "AB", image: img(45), revenue: 512400, growth: 9, positionChange: 1 },
   { name: "Pedro Alves", avatar: "PA", image: img(53), revenue: 421000, growth: -3, positionChange: -3 },
   { name: "Camila Rocha", avatar: "CR", image: img(49), revenue: 356800, growth: 15, positionChange: 3 },
-  { name: "Diego Martins", avatar: "DM", image: img(57), revenue: 289500, growth: 7, positionChange: 0 },
+  { name: "Diego Martins", avatar: "DM", image: img(57), revenue: 289500, growth: 7, positionChange: 1 },
   { name: "Beatriz Lima", avatar: "BL", image: img(20), revenue: 214300, growth: -2, positionChange: -2 },
   { name: "Thiago Souza", avatar: "TS", image: img(60), revenue: 189700, growth: 5, positionChange: 1 },
 ];
