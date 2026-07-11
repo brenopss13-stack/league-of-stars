@@ -5,7 +5,7 @@ import { Header } from "@/components/ranking/Header";
 import { Podium } from "@/components/ranking/Podium";
 import { RankingList } from "@/components/ranking/RankingList";
 import { Particles } from "@/components/ranking/Particles";
-import { PeriodTabs } from "@/components/ranking/PeriodTabs";
+
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -27,7 +27,6 @@ function Index() {
       <Particles />
       <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-10 px-4 py-16 sm:gap-16 sm:px-8 md:gap-20 md:px-12 md:py-28">
         <Header />
-        <PeriodTabs />
         <section>
           <Podium top3={top3} />
         </section>
