@@ -15,7 +15,7 @@ export function Header() {
           style={{ color: "#F4C542" }}
           strokeWidth={2.2}
         />
-        <span>Ranking de Faturamento</span>
+        <span>Top 10 Players</span>
       </motion.h1>
 
       <motion.p
@@ -24,7 +24,7 @@ export function Header() {
         transition={{ duration: 0.7, delay: 0.15 }}
         className="mt-3 max-w-xl text-sm text-[#9CA3AF] sm:mt-4 sm:text-lg md:text-xl"
       >
-        Top 10 Players do Marketplace
+        Ranking dos maiores faturamentos do marketplace
       </motion.p>
     </div>
   );
