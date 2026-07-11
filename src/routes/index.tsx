@@ -24,7 +24,7 @@ function Index() {
       style={{ backgroundColor: "#050505", fontFamily: "'Inter', sans-serif" }}
     >
       <Particles />
-      <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-10 px-6 py-16 sm:gap-16 md:gap-20 md:py-28">
+      <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-10 px-4 py-16 sm:gap-16 sm:px-8 md:gap-20 md:px-12 md:py-28 lg:px-16">
         <Header />
         <section>
           <Podium top3={top3} />

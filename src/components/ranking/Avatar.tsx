@@ -1,12 +1,15 @@
 import { useIsMobile } from "@/hooks/use-mobile";
+import { VerifiedBadge } from "./VerifiedBadge";
 
 type Props = {
   initials: string;
+  image?: string;
+  name?: string;
   size?: number;
   mobileSize?: number;
   ring?: "gold" | "silver" | "bronze" | "none";
+  verified?: boolean;
 };
-
 
 const ringColors = {
   gold: {
@@ -29,30 +32,59 @@ const ringColors = {
   },
 };
 
-export function Avatar({ initials, size = 56, mobileSize, ring = "none" }: Props) {
+export function Avatar({
+  initials,
+  image,
+  name,
+  size = 56,
+  mobileSize,
+  ring = "none",
+  verified = false,
+}: Props) {
   const isMobile = useIsMobile();
   const finalSize = isMobile && mobileSize ? mobileSize : size;
-  size = finalSize;
+  const s = finalSize;
+  const badgeSize = Math.max(14, Math.round(s * 0.32));
+
+  const inner = image ? (
+    <img
+      src={image}
+      alt={name ?? initials}
+      className="h-full w-full rounded-full object-cover"
+      loading="lazy"
+    />
+  ) : (
+    <div
+      className="grid h-full w-full place-items-center rounded-full bg-gradient-to-br from-white/12 to-white/[0.02] font-semibold text-white"
+      style={{ fontSize: s * 0.36 }}
+    >
+      {initials}
+    </div>
+  );
+
+  const badge = verified && (
+    <VerifiedBadge
+      size={badgeSize}
+      className="absolute -bottom-0.5 -right-0.5 drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]"
+    />
+  );
 
   if (ring === "none") {
     return (
-      <div
-        className="grid shrink-0 place-items-center rounded-full bg-gradient-to-br from-white/10 to-white/[0.02] font-semibold text-white/90"
-        style={{ width: size, height: size, fontSize: size * 0.36 }}
-      >
-        {initials}
+      <div className="relative shrink-0" style={{ width: s, height: s }}>
+        <div className="h-full w-full overflow-hidden rounded-full bg-gradient-to-br from-white/10 to-white/[0.02]">
+          {inner}
+        </div>
+        {badge}
       </div>
     );
   }
 
   const c = ringColors[ring];
-  const ringWidth = Math.max(3, Math.round(size * 0.055));
+  const ringWidth = Math.max(3, Math.round(s * 0.055));
 
   return (
-    <div
-      className="relative shrink-0"
-      style={{ width: size, height: size }}
-    >
+    <div className="relative shrink-0" style={{ width: s, height: s }}>
       {/* soft outer glow */}
       <div
         aria-hidden
@@ -71,13 +103,9 @@ export function Avatar({ initials, size = 56, mobileSize, ring = "none" }: Props
           boxShadow: `0 0 0 1px ${c.mid}55, 0 0 28px ${c.glow}`,
         }}
       >
-        <div
-          className="grid h-full w-full place-items-center rounded-full bg-gradient-to-br from-white/12 to-white/[0.02] font-semibold text-white"
-          style={{ fontSize: size * 0.36 }}
-        >
-          {initials}
-        </div>
+        <div className="h-full w-full overflow-hidden rounded-full">{inner}</div>
       </div>
+      {badge}
     </div>
   );
 }
