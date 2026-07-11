@@ -3,7 +3,7 @@ import type { Player } from "@/lib/ranking-data";
 import { Avatar } from "./Avatar";
 import { Badge } from "./Badge";
 import { AnimatedRevenue } from "./AnimatedRevenue";
-import { TrendingUp, TrendingDown } from "lucide-react";
+
 
 type Props = {
   player: Player;
@@ -96,20 +96,6 @@ export function PodiumCard({ player, position }: Props) {
               isFirst ? "text-4xl" : "text-3xl"
             }`}
           />
-
-          <div
-            className={`mt-3 inline-flex items-center gap-1.5 text-sm font-medium ${
-              player.growth >= 0 ? "text-[#22C55E]" : "text-red-400"
-            }`}
-          >
-            {player.growth >= 0 ? (
-              <TrendingUp className="h-4 w-4" />
-            ) : (
-              <TrendingDown className="h-4 w-4" />
-            )}
-            {player.growth >= 0 ? "+" : ""}
-            {player.growth}%
-          </div>
         </div>
       </div>
     </motion.div>
