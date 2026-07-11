@@ -97,21 +97,8 @@ export function PodiumCard({ player, position }: Props) {
             }`}
           />
 
-          <div
-            className={`mt-3 inline-flex items-center gap-1.5 text-sm font-medium ${
-              player.growth >= 0 ? "text-[#22C55E]" : "text-red-400"
-            }`}
-          >
-            {player.growth >= 0 ? (
-              <TrendingUp className="h-4 w-4" />
-            ) : (
-              <TrendingDown className="h-4 w-4" />
-            )}
-            {player.growth >= 0 ? "+" : ""}
-            {player.growth}%
-          </div>
         </div>
-      </div>
+
     </motion.div>
   );
 }
