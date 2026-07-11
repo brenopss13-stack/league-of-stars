@@ -1,8 +1,12 @@
+import { useIsMobile } from "@/hooks/use-mobile";
+
 type Props = {
   initials: string;
   size?: number;
+  mobileSize?: number;
   ring?: "gold" | "silver" | "bronze" | "none";
 };
+
 
 const ringColors = {
   gold: {
@@ -25,7 +29,11 @@ const ringColors = {
   },
 };
 
-export function Avatar({ initials, size = 56, ring = "none" }: Props) {
+export function Avatar({ initials, size = 56, mobileSize, ring = "none" }: Props) {
+  const isMobile = useIsMobile();
+  const finalSize = isMobile && mobileSize ? mobileSize : size;
+  size = finalSize;
+
   if (ring === "none") {
     return (
       <div
