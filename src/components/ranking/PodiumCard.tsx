@@ -59,8 +59,8 @@ export function PodiumCard({ player, position }: Props) {
 
       {isFirst && (
         <motion.div
-          initial={{ opacity: 0, y: -8, rotate: -12 }}
-          animate={{ opacity: 1, y: 0, rotate: -8 }}
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="pointer-events-none absolute left-1/2 z-10 -translate-x-1/2"
           style={{ top: "-22px" }}
