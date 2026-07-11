@@ -28,8 +28,8 @@ export function PodiumCard({ player, position }: Props) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -6, transition: { duration: 0.3 } }}
-      className={`group relative flex flex-col items-center ${
-        isFirst ? "w-full sm:w-[320px]" : "w-full sm:w-[240px]"
+      className={`group relative flex min-w-0 flex-1 flex-col items-center ${
+        isFirst ? "sm:w-[320px] sm:flex-none" : "sm:w-[240px] sm:flex-none"
       }`}
     >
       {isFirst && (
@@ -44,8 +44,8 @@ export function PodiumCard({ player, position }: Props) {
       )}
 
       <div
-        className={`relative w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-[#111111]/70 backdrop-blur-xl transition-all duration-300 group-hover:border-white/15 ${
-          isFirst ? "p-8" : "p-6"
+        className={`relative w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111111]/70 backdrop-blur-xl transition-all duration-300 group-hover:border-white/15 sm:rounded-3xl ${
+          isFirst ? "p-4 sm:p-8" : "p-3 sm:p-6"
         }`}
         style={{
           boxShadow: isFirst
@@ -67,23 +67,24 @@ export function PodiumCard({ player, position }: Props) {
             <Avatar
               initials={player.avatar}
               size={isFirst ? 88 : 68}
+              mobileSize={isFirst ? 60 : 48}
               ring={ringByPos[position]}
             />
             <div
-              className="absolute -bottom-1 left-1/2 grid h-7 w-7 -translate-x-1/2 place-items-center rounded-full border border-white/10 bg-[#050505] text-xs font-bold"
+              className="absolute -bottom-1 left-1/2 grid h-6 w-6 -translate-x-1/2 place-items-center rounded-full border border-white/10 bg-[#050505] text-[10px] font-bold sm:h-7 sm:w-7 sm:text-xs"
               style={{ color: accent }}
             >
               {position}
             </div>
           </div>
 
-          <div className="mt-5">
+          <div className="mt-4 sm:mt-5">
             <Badge position={position} />
           </div>
 
           <h3
-            className={`mt-4 font-semibold text-white ${
-              isFirst ? "text-2xl" : "text-lg"
+            className={`mt-3 truncate max-w-full font-semibold text-white sm:mt-4 ${
+              isFirst ? "text-sm sm:text-2xl" : "text-xs sm:text-lg"
             }`}
           >
             {player.name}
@@ -92,8 +93,8 @@ export function PodiumCard({ player, position }: Props) {
           <AnimatedRevenue
             value={player.revenue}
             delay={0.4 + delay}
-            className={`mt-3 block font-bold tracking-tight text-white ${
-              isFirst ? "text-4xl" : "text-3xl"
+            className={`mt-2 block font-bold tracking-tight text-white sm:mt-3 ${
+              isFirst ? "text-lg sm:text-4xl" : "text-base sm:text-3xl"
             }`}
           />
         </div>
@@ -101,3 +102,4 @@ export function PodiumCard({ player, position }: Props) {
     </motion.div>
   );
 }
+
