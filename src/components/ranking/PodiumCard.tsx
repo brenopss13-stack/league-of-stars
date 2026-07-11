@@ -3,7 +3,7 @@ import type { Player } from "@/lib/ranking-data";
 import { Avatar } from "./Avatar";
 import { Badge } from "./Badge";
 import { AnimatedRevenue } from "./AnimatedRevenue";
-import { TrendingUp, TrendingDown } from "lucide-react";
+
 
 type Props = {
   player: Player;
