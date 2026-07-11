@@ -30,9 +30,10 @@ function Index() {
         <section>
           <Podium top3={top3} />
         </section>
-        <section>
+        <section className="-mt-6 sm:-mt-10 md:-mt-12">
           <RankingList players={rest} />
         </section>
+
 
 
         <footer className="pt-8 text-center text-xs text-white/30">
