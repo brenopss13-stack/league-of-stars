@@ -4,16 +4,6 @@ import { Trophy } from "lucide-react";
 export function Header() {
   return (
     <div className="flex flex-col items-center text-center">
-      <motion.span
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-xs font-medium text-white/70 backdrop-blur-md"
-      >
-        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#22C55E]" />
-        Temporada ativa · Atualizado agora
-      </motion.span>
-
       <motion.h1
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
