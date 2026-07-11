@@ -17,10 +17,16 @@ const accentByPos = {
   2: "#C0C0C0",
   3: "#CD7F32",
 } as const;
+const glowByPos = {
+  1: "rgba(244,197,66,0.35)",
+  2: "rgba(220,220,230,0.22)",
+  3: "rgba(205,127,50,0.25)",
+} as const;
 
 export function PodiumCard({ player, position }: Props) {
   const isFirst = position === 1;
   const accent = accentByPos[position];
+  const glow = glowByPos[position];
   const delay = position === 1 ? 0.15 : position === 2 ? 0.05 : 0.25;
 
   return (
@@ -33,35 +39,48 @@ export function PodiumCard({ player, position }: Props) {
         isFirst ? "sm:w-[320px] sm:flex-none" : "sm:w-[240px] sm:flex-none"
       }`}
     >
-      {isFirst && (
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -inset-16 -z-10 rounded-full opacity-70 blur-3xl"
-          style={{
-            background:
-              "radial-gradient(closest-side, rgba(244,197,66,0.28), rgba(244,197,66,0.06) 55%, transparent 75%)",
-          }}
-        />
-      )}
+      {/* Ambient glow behind the card, tinted by position */}
+      <div
+        aria-hidden
+        className={`pointer-events-none absolute -z-10 rounded-full blur-3xl transition-opacity duration-500 group-hover:opacity-100 ${
+          isFirst ? "-inset-20 opacity-90" : "-inset-14 opacity-60"
+        }`}
+        style={{
+          background: `radial-gradient(closest-side, ${glow}, transparent 70%)`,
+        }}
+      />
 
       <div
-        className={`relative w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111111]/70 backdrop-blur-xl transition-all duration-300 group-hover:border-white/15 sm:rounded-3xl ${
+        className={`relative w-full overflow-hidden rounded-2xl border border-white/[0.08] backdrop-blur-2xl transition-all duration-300 group-hover:border-white/15 sm:rounded-3xl ${
           isFirst ? "p-4 sm:p-8" : "p-3 sm:p-6"
         }`}
         style={{
+          background: isFirst
+            ? `radial-gradient(120% 90% at 50% 0%, ${accent}18, transparent 55%), linear-gradient(180deg, rgba(24,20,10,0.85), rgba(14,14,14,0.85))`
+            : `radial-gradient(120% 90% at 50% 0%, ${accent}12, transparent 60%), linear-gradient(180deg, rgba(20,20,22,0.82), rgba(12,12,14,0.85))`,
           boxShadow: isFirst
-            ? `0 30px 80px -30px rgba(244,197,66,0.35), 0 1px 0 0 rgba(255,255,255,0.04) inset`
-            : `0 20px 60px -30px rgba(0,0,0,0.6), 0 1px 0 0 rgba(255,255,255,0.03) inset`,
+            ? `0 40px 100px -40px ${accent}55, 0 0 0 1px rgba(255,255,255,0.03) inset, 0 1px 0 0 rgba(255,255,255,0.06) inset`
+            : `0 30px 80px -40px ${accent}33, 0 0 0 1px rgba(255,255,255,0.02) inset, 0 1px 0 0 rgba(255,255,255,0.04) inset`,
         }}
       >
-        {/* top hairline */}
+        {/* soft top hairline */}
         <div
           aria-hidden
-          className="absolute inset-x-6 top-0 h-px opacity-60"
+          className="absolute inset-x-8 top-0 h-px opacity-70"
           style={{
-            background: `linear-gradient(90deg, transparent, ${accent}80, transparent)`,
+            background: `linear-gradient(90deg, transparent, ${accent}, transparent)`,
           }}
         />
+
+        {/* subtle corner sheen */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-24 left-1/2 h-40 w-56 -translate-x-1/2 rounded-full opacity-40 blur-2xl"
+          style={{
+            background: `radial-gradient(closest-side, ${accent}30, transparent 70%)`,
+          }}
+        />
+
 
         <div className="flex flex-col items-center text-center">
           <div className="relative">
