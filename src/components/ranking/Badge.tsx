@@ -24,10 +24,10 @@ export function Badge({ position }: Props) {
   const s = styles[position];
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium tracking-wide ${s.bg} backdrop-blur-md`}
+      className={`inline-flex max-w-full items-center gap-1 whitespace-nowrap rounded-full border px-2 py-0.5 text-[10px] font-medium tracking-wide sm:gap-1.5 sm:px-3 sm:py-1 sm:text-xs ${s.bg} backdrop-blur-md`}
     >
-      {s.icon}
-      {s.label}
+      <span className="shrink-0">{s.icon}</span>
+      <span className="truncate">{s.label}</span>
     </span>
   );
 }
