@@ -96,9 +96,8 @@ export function PodiumCard({ player, position }: Props) {
               isFirst ? "text-4xl" : "text-3xl"
             }`}
           />
-
         </div>
-
+      </div>
     </motion.div>
   );
 }
