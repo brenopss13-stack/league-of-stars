@@ -5,6 +5,7 @@ import { Header } from "@/components/ranking/Header";
 import { Podium } from "@/components/ranking/Podium";
 import { RankingList } from "@/components/ranking/RankingList";
 import { Particles } from "@/components/ranking/Particles";
+import { PeriodTabs } from "@/components/ranking/PeriodTabs";
 
 export const Route = createFileRoute("/")({
   component: Index,
