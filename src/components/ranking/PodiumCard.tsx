@@ -63,6 +63,11 @@ export function PodiumCard({ player, position }: Props) {
           }}
         />
 
+        <VerifiedBadge
+          size={isFirst ? 22 : 18}
+          className="absolute right-3 top-3 drop-shadow-[0_0_10px_rgba(168,85,247,0.5)] sm:right-4 sm:top-4"
+        />
+
         <div className="flex flex-col items-center text-center">
           <div className="relative">
             <Avatar
