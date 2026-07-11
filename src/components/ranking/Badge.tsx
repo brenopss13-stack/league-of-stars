@@ -1,11 +1,11 @@
-import { Crown, Medal, Award } from "lucide-react";
+import { Medal } from "lucide-react";
 
 type Props = { position: 1 | 2 | 3 };
 
 const styles = {
   1: {
     bg: "bg-[#F4C542]/12 border-[#F4C542]/40 text-[#F4C542]",
-    icon: <Crown className="h-3.5 w-3.5" />,
+    icon: <Medal className="h-3.5 w-3.5" />,
     label: "1º Lugar",
   },
   2: {
@@ -15,7 +15,7 @@ const styles = {
   },
   3: {
     bg: "bg-[#CD7F32]/12 border-[#CD7F32]/40 text-[#CD7F32]",
-    icon: <Award className="h-3.5 w-3.5" />,
+    icon: <Medal className="h-3.5 w-3.5" />,
     label: "3º Lugar",
   },
 } as const;
