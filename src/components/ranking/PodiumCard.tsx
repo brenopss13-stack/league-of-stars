@@ -11,7 +11,7 @@ type Props = {
   position: 1 | 2 | 3;
 };
 
-const accentByPos = {
+const ringByPos = { 1: "gold", 2: "silver", 3: "bronze" } as const;
   1: "#F4C542",
   2: "#C0C0C0",
   3: "#CD7F32",
