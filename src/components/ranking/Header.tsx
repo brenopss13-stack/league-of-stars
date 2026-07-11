@@ -25,7 +25,7 @@ export function Header() {
           style={{ color: "#F4C542" }}
           strokeWidth={2.2}
         />
-        <span>Ranking de Faturamento</span>
+        <span>Ranking</span>
       </motion.h1>
 
       <motion.p

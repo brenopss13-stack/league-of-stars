@@ -18,15 +18,21 @@ const accentByPos = {
   3: "#CD7F32",
 } as const;
 const glowByPos = {
-  1: "rgba(244,197,66,0.14)",
-  2: "rgba(220,220,230,0.08)",
-  3: "rgba(205,127,50,0.10)",
+  1: "rgba(244,197,66,0.22)",
+  2: "rgba(220,220,230,0.14)",
+  3: "rgba(205,127,50,0.16)",
+} as const;
+const rgbByPos = {
+  1: "244,197,66",
+  2: "220,220,230",
+  3: "205,127,50",
 } as const;
 
 export function PodiumCard({ player, position }: Props) {
   const isFirst = position === 1;
   const accent = accentByPos[position];
   const glow = glowByPos[position];
+  const rgb = rgbByPos[position];
   const delay = position === 1 ? 0.15 : position === 2 ? 0.05 : 0.25;
 
   return (
@@ -39,14 +45,14 @@ export function PodiumCard({ player, position }: Props) {
         isFirst ? "sm:w-[320px] sm:flex-none" : "sm:w-[240px] sm:flex-none"
       }`}
     >
-      {/* soft ambient glow behind the card */}
+      {/* soft ambient glow surrounding the card */}
       <div
         aria-hidden
-        className={`pointer-events-none absolute -z-10 rounded-full blur-3xl ${
-          isFirst ? "-inset-10 opacity-80" : "-inset-6 opacity-60"
+        className={`pointer-events-none absolute -z-10 rounded-[28px] blur-2xl transition-opacity duration-500 group-hover:opacity-100 ${
+          isFirst ? "-inset-8 opacity-90" : "-inset-6 opacity-75"
         }`}
         style={{
-          background: `radial-gradient(closest-side, ${glow}, transparent 75%)`,
+          background: `radial-gradient(closest-side, ${glow}, transparent 78%)`,
         }}
       />
 
@@ -56,18 +62,32 @@ export function PodiumCard({ player, position }: Props) {
         }`}
         style={{
           boxShadow: isFirst
-            ? `0 24px 60px -30px rgba(0,0,0,0.7), 0 1px 0 0 rgba(255,255,255,0.04) inset`
-            : `0 18px 50px -30px rgba(0,0,0,0.6), 0 1px 0 0 rgba(255,255,255,0.03) inset`,
+            ? `0 24px 60px -30px rgba(0,0,0,0.7), 0 0 0 1px rgba(${rgb},0.08) inset, 0 0 40px -10px rgba(${rgb},0.25), 0 1px 0 0 rgba(255,255,255,0.04) inset`
+            : `0 18px 50px -30px rgba(0,0,0,0.6), 0 0 0 1px rgba(${rgb},0.06) inset, 0 0 32px -12px rgba(${rgb},0.18), 0 1px 0 0 rgba(255,255,255,0.03) inset`,
         }}
       >
-        {/* soft top hairline */}
+        {/* accent border sheen wrapping the card */}
         <div
           aria-hidden
-          className="absolute inset-x-10 top-0 h-px opacity-50"
+          className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl opacity-60 transition-opacity duration-300 group-hover:opacity-90"
+          style={{
+            padding: 1,
+            background: `linear-gradient(135deg, rgba(${rgb},0.55) 0%, rgba(${rgb},0.05) 30%, transparent 50%, rgba(${rgb},0.05) 70%, rgba(${rgb},0.45) 100%)`,
+            WebkitMask:
+              "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+            WebkitMaskComposite: "xor",
+            maskComposite: "exclude",
+          }}
+        />
+        {/* subtle top highlight */}
+        <div
+          aria-hidden
+          className="absolute inset-x-10 top-0 h-px opacity-40"
           style={{
             background: `linear-gradient(90deg, transparent, ${accent}, transparent)`,
           }}
         />
+
 
         <div className="flex flex-col items-center text-center">
           <div className="relative">
