@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Crown } from "lucide-react";
 import type { Player } from "@/lib/ranking-data";
 import { Avatar } from "./Avatar";
 import { Badge } from "./Badge";
