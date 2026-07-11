@@ -74,14 +74,8 @@ export function PodiumCard({ player, position }: Props) {
               ring={ringByPos[position]}
               verified
             />
-
-            <div
-              className="absolute -bottom-1 left-1/2 grid h-6 w-6 -translate-x-1/2 place-items-center rounded-full border border-white/10 bg-[#050505] text-[10px] font-bold sm:h-7 sm:w-7 sm:text-xs"
-              style={{ color: accent }}
-            >
-              {position}
-            </div>
           </div>
+
 
           <div className="mt-4 sm:mt-5">
             <Badge position={position} />
