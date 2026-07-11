@@ -6,8 +6,8 @@ import { RankingRow } from "./RankingRow";
 
 export function RankingList({ players }: { players: Player[] }) {
   const [expanded, setExpanded] = useState(false);
-  const visible = players.slice(0, 2);
-  const hidden = players.slice(2);
+  const visible = players.slice(0, 3);
+  const hidden = players.slice(3);
 
   return (
     <div className="flex flex-col gap-3">
