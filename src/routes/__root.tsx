@@ -77,19 +77,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ranking de Faturamento · Top Players do Marketplace" },
+      { title: "Ranking de Faturamento" },
       {
         name: "description",
         content:
           "Ranking premium dos 10 maiores faturamentos do marketplace. Acompanhe pódio, crescimento e disputa em tempo real.",
       },
-      { property: "og:title", content: "Ranking de Faturamento · Marketplace" },
+      { property: "og:title", content: "Ranking de Faturamento" },
       {
         property: "og:description",
-        content: "Os Top 10 Players do Marketplace em uma disputa de alto desempenho.",
+        content: "Ranking premium dos 10 maiores faturamentos do marketplace. Acompanhe pódio, crescimento e disputa em tempo real.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Ranking de Faturamento" },
+      { name: "twitter:description", content: "Ranking premium dos 10 maiores faturamentos do marketplace. Acompanhe pódio, crescimento e disputa em tempo real." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/67e754a2-7b0b-4eb2-a57c-2449491a0762/id-preview-f6453bd0--48e70ffb-09e2-46b4-8fbe-050106483247.lovable.app-1783773570183.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/67e754a2-7b0b-4eb2-a57c-2449491a0762/id-preview-f6453bd0--48e70ffb-09e2-46b4-8fbe-050106483247.lovable.app-1783773570183.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
