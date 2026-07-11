@@ -3,6 +3,7 @@ import type { Player } from "@/lib/ranking-data";
 import { Avatar } from "./Avatar";
 import { Badge } from "./Badge";
 import { AnimatedRevenue } from "./AnimatedRevenue";
+import { VerifiedBadge } from "./VerifiedBadge";
 
 
 type Props = {
@@ -60,6 +61,11 @@ export function PodiumCard({ player, position }: Props) {
           style={{
             background: `linear-gradient(90deg, transparent, ${accent}80, transparent)`,
           }}
+        />
+
+        <VerifiedBadge
+          size={isFirst ? 22 : 18}
+          className="absolute right-3 top-3 drop-shadow-[0_0_10px_rgba(168,85,247,0.5)] sm:right-4 sm:top-4"
         />
 
         <div className="flex flex-col items-center text-center">
