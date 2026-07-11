@@ -57,6 +57,28 @@ export function PodiumCard({ player, position }: Props) {
         }}
       />
 
+      {isFirst && (
+        <motion.div
+          initial={{ opacity: 0, y: -8, rotate: -12 }}
+          animate={{ opacity: 1, y: 0, rotate: -8 }}
+          transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="pointer-events-none absolute left-1/2 z-10 -translate-x-1/2"
+          style={{ top: "-22px" }}
+        >
+          <Crown
+            className="h-7 w-7 sm:h-10 sm:w-10"
+            style={{
+              color: "#F4C542",
+              filter: "drop-shadow(0 0 10px rgba(244,197,66,0.55))",
+            }}
+            strokeWidth={2.2}
+            fill="#F4C542"
+            fillOpacity={0.25}
+          />
+        </motion.div>
+      )}
+
+
       <div
         className={`relative w-full overflow-hidden rounded-2xl border border-white/[0.06] bg-[#0F0F10]/80 backdrop-blur-xl transition-all duration-300 group-hover:border-white/12 sm:rounded-3xl ${
           isFirst ? "p-4 sm:p-8" : "p-3 sm:p-6"
