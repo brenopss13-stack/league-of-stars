@@ -37,7 +37,9 @@ export function RankingRow({
         ease: [0.16, 1, 0.3, 1],
       }}
       whileHover={{ scale: 1.01 }}
-      className="group grid grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-3 rounded-[18px] border border-white/[0.08] bg-[#111111]/60 px-4 py-3.5 backdrop-blur-xl transition-colors duration-300 hover:border-white/15 sm:grid-cols-[auto_minmax(0,1fr)_auto_auto] sm:gap-4 sm:px-6 sm:py-4"
+      className={`group grid grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-3 rounded-[18px] border border-white/[0.06] px-4 py-3.5 backdrop-blur-xl transition-colors duration-300 hover:border-white/15 sm:grid-cols-[auto_minmax(0,1fr)_auto_auto] sm:gap-4 sm:px-6 sm:py-4 ${
+        index % 2 === 0 ? "bg-[#111111]/60" : "bg-white/[0.015]"
+      }`}
       style={{ boxShadow: "0 10px 40px -20px rgba(0,0,0,0.5)" }}
     >
       <div className="col-span-1 flex min-w-0 items-center gap-4 sm:contents">
