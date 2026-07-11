@@ -11,16 +11,15 @@ type Props = {
   position: 1 | 2 | 3;
 };
 
-const ringByPos = { 1: "gold", 2: "silver", 3: "bronze" } as const;
 const accentByPos = {
   1: "#F4C542",
   2: "#C0C0C0",
   3: "#CD7F32",
 } as const;
 const glowByPos = {
-  1: "rgba(244,197,66,0.35)",
-  2: "rgba(220,220,230,0.22)",
-  3: "rgba(205,127,50,0.25)",
+  1: "rgba(244,197,66,0.14)",
+  2: "rgba(220,220,230,0.08)",
+  3: "rgba(205,127,50,0.10)",
 } as const;
 
 export function PodiumCard({ player, position }: Props) {
