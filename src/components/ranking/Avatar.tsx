@@ -106,6 +106,7 @@ export function Avatar({
             {inner}
           </div>
         </div>
+      </div>
       {badge}
     </div>
   );
